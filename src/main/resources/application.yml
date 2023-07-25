@@ -1,0 +1,55 @@
+debug: false
+person:
+  user-name: 张三
+  boss: true
+  birth: 2023/12/31
+  pet:
+   name: 阿毛
+   weight: 20
+  age: 20
+  interests: [篮球,足球,羽毛球]
+  animal:
+    - 阿猫
+    - 阿狗
+  score:
+    name: 官青
+    age: 35
+  salarys:
+    - 12.3
+    - 45.5
+  all-pets:
+    sick:
+      - {name: 狗,weight: 20}
+      - name: 猫
+        weight: 30
+    health: [{name: 老虎, weight: 120},{name: 豹子, weight: 130}]
+
+#spring:
+#  web:
+#    resources:
+#      static-locations:
+#        - classpath:/haha/
+#        - classpath:/hehe/
+#  mvc:
+#    static-path-pattern: /res/**
+#spring:
+#  web:
+#    resources:
+#      add-mappings: false
+#spring:
+#  web:
+#    resources:
+#      cache:
+#        period: 1500
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+    contentnegotiation:
+      favor-parameter: true
+  datasource:
+    url: jdbc:mysql://localhost/test
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
