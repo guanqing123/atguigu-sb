@@ -1,5 +1,6 @@
 package com.atguigu.sbweb.config;
 
+import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
@@ -28,16 +29,21 @@ public class DataSourceConfig {
 
         DruidDataSource druidDataSource = new DruidDataSource();
 
+        StatFilter statFilter = new StatFilter();
+        statFilter.setSlowSqlMillis(1);
+        statFilter.setLogSlowSql(true);
+
         /**
          * 5. 怎么打开Druid的监控统计功能
          * https://github.com/alibaba/druid/wiki/配置_StatFilter
          */
-        // druidDataSource.setFilters("stat,wall");
+        druidDataSource.setFilters("wall");
+        druidDataSource.setProxyFilters(Arrays.asList(statFilter));
         return druidDataSource;
     }
 
     /**
-     * 配置 druid的监控页功能 https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatViewServlet%E9%85%8D%E7%BD%AE
+     * 配置 druid的监控页功能 https://github.com/alibaba/druid/wiki/配置_StatViewServlet配置
      * @Author guanqing
      * @Date 2023/7/25 21:02
      **/

@@ -9,6 +9,7 @@ import com.atguigu.sbweb.converter.GuiguMessageConverter;
 import com.atguigu.sbweb.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.MediaType;
@@ -31,6 +32,7 @@ import java.util.*;
  * @Author guanqing
  * @Date 2023/4/9 9:47
  **/
+// @Import(DataSourceConfig.class)
 @Configuration(proxyBeanMethods = false)
 public class WebConfig /*implements WebMvcConfigurer*/ {
 
