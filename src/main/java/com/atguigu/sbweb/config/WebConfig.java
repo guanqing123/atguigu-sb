@@ -1,5 +1,6 @@
 package com.atguigu.sbweb.config;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
@@ -7,6 +8,7 @@ import com.alibaba.fastjson2.util.DateUtils;
 import com.atguigu.sbweb.controller.bean.Pet;
 import com.atguigu.sbweb.converter.GuiguMessageConverter;
 import com.atguigu.sbweb.interceptor.LoginInterceptor;
+import com.atguigu.sbweb.model.Answer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -78,10 +80,11 @@ public class WebConfig /*implements WebMvcConfigurer*/ {
                 FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
                 //添加fastJson的配置信息;
                 FastJsonConfig fastJsonConfig = new FastJsonConfig();
-                fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
-                fastJsonConfig.setSerializerFeatures(SerializerFeature.WriteMapNullValue);
                 //关闭循环引用
-                fastJsonConfig.setSerializerFeatures(SerializerFeature.DisableCircularReferenceDetect);
+                fastJsonConfig.setSerializerFeatures(SerializerFeature.WriteMapNullValue,
+                        SerializerFeature.WriteNullStringAsEmpty,
+                        SerializerFeature.WriteNullNumberAsZero,
+                        SerializerFeature.DisableCircularReferenceDetect);
                 //全局时间配置
                 fastJsonConfig.setDateFormat("yyyy-MM-dd");
                 fastJsonConfig.setCharset(Charset.forName("UTF-8"));

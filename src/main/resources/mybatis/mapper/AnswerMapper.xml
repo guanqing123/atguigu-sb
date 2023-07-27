@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.sbweb.mapper.AnswerMapper">
+
+    <select id="getAnswer" resultType="com.atguigu.sbweb.model.Answer">
+        select * from answer where answer_id=#{id}
+    </select>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="answerId">
+        insert into answer(text, `desc`) values(#{text}, #{desc})
+    </insert>
+</mapper>
