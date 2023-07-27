@@ -38,10 +38,10 @@ public class AnswerController {
         int random = new Random().nextInt(10);
         if (random %2==0) {
             log.info("save --> random:{}", random);
-            answerService.save(answer);
+            answerService.save2(answer);
         } else {
             log.info("insert --> random:{}", random);
-            answerService.insert(answer);
+            answerService.insert2(answer);
         }
         return answer;
     }

@@ -8,7 +8,7 @@
         select * from answer where answer_id=#{id}
     </select>
 
-    <insert id="save" useGeneratedKeys="true" keyProperty="answerId">
+    <insert id="save2" useGeneratedKeys="true" keyProperty="answerId">
         insert into answer(text, `desc`) values(#{text}, #{desc})
     </insert>
 </mapper>

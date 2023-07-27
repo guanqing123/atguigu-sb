@@ -77,8 +77,10 @@ spring:
                 drop-table-allow: false
       aop:
         auto: false #不这么配置,spring监控无效
-mybatis:
-  #config-location: classpath:mybatis/mybatis-config.xml
+#mybatis:
+#  #config-location: classpath:mybatis/mybatis-config.xml
+#  mapper-locations: classpath:mybatis/mapper/*.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
+mybatis-plus:
   mapper-locations: classpath:mybatis/mapper/*.xml
-  configuration:
-    map-underscore-to-camel-case: true

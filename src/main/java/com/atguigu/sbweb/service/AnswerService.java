@@ -2,6 +2,7 @@ package com.atguigu.sbweb.service;
 
 import com.atguigu.sbweb.mapper.AnswerMapper;
 import com.atguigu.sbweb.model.Answer;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import java.util.List;
  **/
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class AnswerService {
+public class AnswerService extends ServiceImpl<AnswerMapper, Answer> {
 
     private final AnswerMapper answerMapper;
 
@@ -29,11 +30,11 @@ public class AnswerService {
         return answers;
     }
 
-    public void save(Answer answer) {
-        answerMapper.save(answer);
+    public void save2(Answer answer) {
+        answerMapper.save2(answer);
     }
 
-    public void insert(Answer answer) {
+    public void insert2(Answer answer) {
         answerMapper.insert(answer);
     }
 }
