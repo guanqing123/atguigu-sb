@@ -8,7 +8,10 @@ import com.alibaba.fastjson2.util.DateUtils;
 import com.atguigu.sbweb.controller.bean.Pet;
 import com.atguigu.sbweb.converter.GuiguMessageConverter;
 import com.atguigu.sbweb.interceptor.LoginInterceptor;
+import com.atguigu.sbweb.interceptor.RequestInterceptor;
 import com.atguigu.sbweb.model.Answer;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -36,7 +39,10 @@ import java.util.*;
  **/
 // @Import(DataSourceConfig.class)
 @Configuration(proxyBeanMethods = false)
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class WebConfig /*implements WebMvcConfigurer*/ {
+
+    private final RequestInterceptor requestInterceptor;
 
     @Bean
     public HiddenHttpMethodFilter hiddenHttpMethodFilter(){
@@ -119,6 +125,7 @@ public class WebConfig /*implements WebMvcConfigurer*/ {
             public void addInterceptors(InterceptorRegistry registry) {
                 registry.addInterceptor(new LoginInterceptor())
                         .addPathPatterns("/**");
+                registry.addInterceptor(requestInterceptor);
             }
         };
     }

@@ -77,6 +77,11 @@ spring:
                 drop-table-allow: false
       aop:
         auto: false #不这么配置,spring监控无效
+      redis:
+        host: 172.30.8.48
+        port: 6379
+        password: jsq8VkoKdW4%^Qh0
+        database: 10
 #mybatis:
 #  #config-location: classpath:mybatis/mybatis-config.xml
 #  mapper-locations: classpath:mybatis/mapper/*.xml
